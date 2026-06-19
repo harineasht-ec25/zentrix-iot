@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zentrix IoT — Smart Devices for Every Industry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f12;--bg2:#13161b;--bg3:#1a1e25;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);--text:#f0f2f5;--text2:#8a9ab0;--text3:#556070;--accent:#00e5a0;--accent-dim:rgba(0,229,160,0.12);--warn:#f5a623;--warn-dim:rgba(245,166,35,0.12);--danger:#ff5c5c;--danger-dim:rgba(255,92,92,0.12);--radius:10px;--radius-lg:14px;--font-head:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.6}
+nav{position:sticky;top:0;z-index:200;background:rgba(13,15,18,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:58px}
+.nav-brand{font-family:var(--font-head);font-size:18px;font-weight:700;letter-spacing:-.3px}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:var(--text2);font-size:13px;text-decoration:none;cursor:pointer;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#0d0f12;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+#cartBar{display:none;position:sticky;top:58px;z-index:99;background:#1a1e25;border-bottom:1px solid var(--border2);padding:.6rem 2rem;align-items:center;justify-content:space-between}
+#cartBar.show{display:flex}
+.cart-info{font-size:13px;color:var(--text2)}
+.cart-info strong{color:var(--accent)}
+.cart-actions{display:flex;gap:8px}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2);padding:5px 14px;border-radius:var(--radius);font-size:12px;cursor:pointer;font-family:var(--font-body)}
+.btn-accent{background:var(--accent);color:#0d0f12;border:none;padding:5px 16px;border-radius:var(--radius);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font-body)}
+.hero{padding:5rem 2rem 4rem;text-align:center;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,229,160,0.07) 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(0,229,160,0.2);padding:5px 14px;border-radius:99px;margin-bottom:1.5rem}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{font-family:var(--font-head);font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.15;letter-spacing:-1px;margin-bottom:1rem}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{font-size:15px;color:var(--text2);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#0d0f12;border:none;padding:11px 26px;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);padding:11px 26px;border-radius:var(--radius);font-size:14px;cursor:pointer;font-family:var(--font-body);transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{padding:1.5rem 2rem;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-num{font-family:var(--font-head);font-size:24px;font-weight:700;color:var(--accent)}
+.stat-label{font-size:12px;color:var(--text2);margin-top:2px}
+.section{padding:3rem 2rem}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.section-title{font-family:var(--font-head);font-size:22px;font-weight:700;letter-spacing:-.5px}
+.section-sub{font-size:13px;color:var(--text2);margin-top:4px;margin-bottom:2rem}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.filter-btn{border:1px solid var(--border);background:var(--bg2);color:var(--text2);padding:6px 16px;border-radius:99px;font-size:12px;cursor:pointer;font-family:var(--font-body);transition:all .2s}
+.filter-btn:hover{border-color:var(--border2);color:var(--text)}
+.filter-btn.active{background:var(--accent-dim);border-color:rgba(0,229,160,0.4);color:var(--accent)}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.card-img-wrap{height:130px;display:flex;align-items:center;justify-content:center;background:var(--bg3);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover}
+.card-img-wrap .emoji-icon{font-size:42px}
+.badge{position:absolute;top:10px;left:10px;font-size:10px;font-weight:500;padding:2px 8px;border-radius:99px}
+.badge-new{background:var(--accent-dim);color:var(--accent);border:1px solid rgba(0,229,160,0.25)}
+.badge-hot{background:var(--danger-dim);color:var(--danger);border:1px solid rgba(255,92,92,0.25)}
+.badge-custom{background:var(--warn-dim);color:var(--warn);border:1px solid rgba(245,166,35,0.25)}
+.card-body{padding:14px;flex:1;display:flex;flex-direction:column}
+.card-name{font-family:var(--font-head);font-size:13px;font-weight:600;margin-bottom:5px;line-height:1.4}
+.card-desc{font-size:11px;color:var(--text2);line-height:1.6;flex:1;margin-bottom:10px}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.tag{font-size:10px;padding:2px 8px;border-radius:99px;background:var(--bg3);color:var(--text3);border:1px solid var(--border)}
+.card-footer{display:flex;align-items:center;justify-content:space-between}
+.price{font-family:var(--font-head);font-size:15px;font-weight:700}
+.price-req{font-size:11px;color:var(--text2)}
+.rating{font-size:10px;color:var(--text3);margin-top:1px}
+.add-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:5px 12px;border-radius:var(--radius);font-size:11px;cursor:pointer;font-family:var(--font-body);transition:all .2s}
+.add-btn:hover{background:var(--accent-dim);border-color:rgba(0,229,160,0.4);color:var(--accent)}
+.quote-btn{background:var(--warn-dim);border:1px solid rgba(245,166,35,0.3);color:var(--warn);padding:5px 12px;border-radius:var(--radius);font-size:11px;cursor:pointer;font-family:var(--font-body)}
+.custom-banner{background:linear-gradient(135deg,rgba(0,229,160,0.06) 0%,rgba(78,168,255,0.06) 100%);border:1px solid rgba(0,229,160,0.18);border-radius:var(--radius-lg);padding:1.75rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.custom-banner-icon{font-size:42px;flex-shrink:0}
+.custom-banner-text{flex:1}
+.custom-banner-text h3{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:4px}
+.custom-banner-text p{font-size:12px;color:var(--text2)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.feat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.1rem;transition:border-color .2s}
+.feat:hover{border-color:var(--border2)}
+.feat-icon{font-size:20px;margin-bottom:8px}
+.feat-title{font-family:var(--font-head);font-size:12px;font-weight:600;margin-bottom:3px}
+.feat-desc{font-size:11px;color:var(--text2);line-height:1.5}
+hr{border:none;border-top:1px solid var(--border)}
+.form-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.form-group label{font-size:12px;color:var(--text2);font-weight:500}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--font-body);font-size:13px;padding:9px 13px;background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:var(--radius);transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(0,229,160,0.5)}
+.form-group select option{background:var(--bg3)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-group.no-mb{margin-bottom:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;text-align:center}
+footer .brand{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:.4rem}
+footer .brand span{color:var(--accent)}
+footer p{font-size:12px;color:var(--text3)}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:.75rem 0}
+.footer-links a{font-size:12px;color:var(--text2);text-decoration:none;cursor:pointer}
+.footer-links a:hover{color:var(--accent)}
+#toast{position:fixed;bottom:24px;right:24px;background:var(--accent);color:#0d0f12;padding:10px 18px;border-radius:var(--radius);font-size:12px;font-weight:600;display:none;z-index:9999}
+.skeleton{background:linear-gradient(90deg,var(--bg2) 25%,var(--bg3) 50%,var(--bg2) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:var(--radius-lg);height:220px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+#formSuccess{display:none;text-align:center;padding:2rem 1rem}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.stat{border-right:none;border-bottom:1px solid var(--border)}.form-grid-2{grid-template-columns:1fr}.nav-links{display:none}.hero{padding:3.5rem 1.25rem 3rem}.section{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Zen<span>trix</span> IoT</div>
+  <div class="nav-links">
+    <a onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Products</a>
+    <a onclick="document.getElementById('custom-section').scrollIntoView({behavior:'smooth'})">Custom IoT</a>
+    <a onclick="document.getElementById('why-us').scrollIntoView({behavior:'smooth'})">About</a>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a quote</button>
+</nav>
+
+<div id="cartBar">
+  <div class="cart-info">🛒 <span id="cartCount">0</span> item(s) &nbsp;·&nbsp; <strong id="cartTotal">₹0</strong></div>
+  <div class="cart-actions">
+    <button class="btn-ghost" onclick="clearCart()">Clear</button>
+    <button class="btn-accent" onclick="checkout()">Checkout ↗</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-eyebrow">IoT Solutions · Made in India</div>
+  <h1>Smart devices for<br><em>every field, every farm,</em><br>every home.</h1>
+  <p>GSM · Wi-Fi · LoRa enabled IoT products for agriculture, forest safety, home automation, and industrial use. Built to last. Delivered fast.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Browse all products</button>
+    <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a quote</button>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num" id="statCount">14+</div><div class="stat-label">IoT Products</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Connectivity Options</div></div>
+  <div class="stat"><div class="stat-num">Custom</div><div class="stat-label">Build to Order</div></div>
+  <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Dispatch Time</div></div>
+</div>
+
+<section class="section" id="products">
+  <div class="section-eyebrow">Our Products</div>
+  <div class="section-title">IoT devices for every use case</div>
+  <div class="section-sub">Agriculture · Forest safety · Home & utility · Industrial · Custom IoT</div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts(this,'all')">All products</button>
+    <button class="filter-btn" onclick="filterProducts(this,'forest')">🌲 Forest & safety</button>
+    <button class="filter-btn" onclick="filterProducts(this,'agri')">🌾 Agriculture</button>
+    <button class="filter-btn" onclick="filterProducts(this,'home')">🏠 Home & utility</button>
+    <button class="filter-btn" onclick="filterProducts(this,'industrial')">🏭 Industrial</button>
+    <button class="filter-btn" onclick="filterProducts(this,'custom')">⚙️ Custom IoT</button>
+  </div>
+  <div class="products" id="productGrid"></div>
+</section>
+
+<hr>
+
+<section class="section" id="custom-section">
+  <div class="section-eyebrow">Custom & Industrial IoT</div>
+  <div class="section-title">We build what you need</div>
+  <div class="section-sub">Have a unique requirement? We design, manufacture and deploy end-to-end IoT solutions.</div>
+  <div class="custom-banner">
+    <div class="custom-banner-icon">🔩</div>
+    <div class="custom-banner-text">
+      <h3>End-to-end IoT product development</h3>
+      <p>Circuit design · PCB fabrication · Firmware · Cloud integration · IP65/67 enclosures · Bulk manufacturing · Field deployment</p>
+    </div>
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start your project ↗</button>
+  </div>
+  <div class="features-grid">
+    <div class="feat"><div class="feat-icon">🔲</div><div class="feat-title">PCB Design</div><div class="feat-desc">Custom schematic to production-ready board</div></div>
+    <div class="feat"><div class="feat-icon">💻</div><div class="feat-title">Firmware Dev</div><div class="feat-desc">RTOS, bare-metal, ESP-IDF & Arduino</div></div>
+    <div class="feat"><div class="feat-icon">☁️</div><div class="feat-title">Cloud & Dashboard</div><div class="feat-desc">MQTT, REST API, real-time dashboards</div></div>
+    <div class="feat"><div class="feat-icon">📦</div><div class="feat-title">IP Enclosures</div><div class="feat-desc">IP65/67 outdoor-rated housing</div></div>
+    <div class="feat"><div class="feat-icon">✅</div><div class="feat-title">CE / RoHS</div><div class="feat-desc">Compliance & certification support</div></div>
+    <div class="feat"><div class="feat-icon">🏭</div><div class="feat-title">Bulk Orders</div><div class="feat-desc">MOQ 10 units, factory pricing</div></div>
+    <div class="feat"><div class="feat-icon">📡</div><div class="feat-title">GSM / LoRa / Wi-Fi</div><div class="feat-desc">Multi-protocol wireless options</div></div>
+    <div class="feat"><div class="feat-icon">🛠️</div><div class="feat-title">After-sales Support</div><div class="feat-desc">Onsite service & warranty</div></div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section" id="why-us">
+  <div class="section-eyebrow">Why Zentrix</div>
+  <div class="section-title">Trusted by farmers, factories & forest departments</div>
+  <div class="section-sub" style="margin-bottom:1.5rem"></div>
+  <div class="features-grid">
+    <div class="feat"><div class="feat-icon">🛡️</div><div class="feat-title">Quality assured</div><div class="feat-desc">Every device tested before dispatch</div></div>
+    <div class="feat"><div class="feat-icon">🚚</div><div class="feat-title">Pan-India delivery</div><div class="feat-desc">Ships within 48 hrs, fully tracked</div></div>
+    <div class="feat"><div class="feat-icon">🎧</div><div class="feat-title">Tech support</div><div class="feat-desc">Call / WhatsApp, Mon–Sat 9am–6pm</div></div>
+    <div class="feat"><div class="feat-icon">🔄</div><div class="feat-title">7-day returns</div><div class="feat-desc">Hassle-free return & replacement</div></div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section" id="contact">
+  <div class="section-eyebrow">Contact Us</div>
+  <div class="section-title">Get in touch or request a quote</div>
+  <div class="section-sub">For orders, custom builds, bulk pricing, or technical queries — we respond within 24 hours.</div>
+  <div class="form-wrap">
+    <form id="enquiryForm" action="https://formsubmit.co/harineash007@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+      <input type="hidden" name="_subject" value="New Enquiry — Zentrix IoT Store">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div class="form-grid-2">
+        <div class="form-group"><label>Full name *</label><input type="text" name="Full Name" placeholder="Your name" required></div>
+        <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" name="Phone / WhatsApp" placeholder="+91 XXXXX XXXXX" required></div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-group"><label>Email</label><input type="email" name="Email" placeholder="you@email.com"></div>
+        <div class="form-group"><label>Company / Organisation</label><input type="text" name="Company" placeholder="Optional"></div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>Product of interest *</label>
+          <select name="Product Interest" required id="productSelect">
+            <option value="">Select a product...</option>
+            <optgroup label="Forest & Safety">
+              <option>Emergency alert system for forest</option>
+              <option>Animal repellent device</option>
+            </optgroup>
+            <optgroup label="Agriculture">
+              <option>Mobile starter conversion kit — GSM</option>
+              <option>Mobile starter conversion kit — Wi-Fi</option>
+              <option>Mobile starter conversion kit — LoRa</option>
+              <option>Automated farm valve controller</option>
+            </optgroup>
+            <optgroup label="Home & Utility">
+              <option>Car mobile charger adapter</option>
+              <option>IoT timer switch</option>
+              <option>Tank float water level converter</option>
+              <option>Temperature monitor</option>
+              <option>IoT home automation kit</option>
+            </optgroup>
+            <optgroup label="Industrial">
+              <option>Industrial IoT solution</option>
+              <option>Industrial data logger</option>
+            </optgroup>
+            <optgroup label="Custom">
+              <option>Custom IoT product development</option>
+              <option>Other / Not listed</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group"><label>Quantity needed</label><input type="number" name="Quantity" placeholder="e.g. 5" min="1"></div>
+      </div>
+      <div class="form-group"><label>Message / project details</label><textarea name="Message" placeholder="Describe your use case, connectivity needs, or customisation required..."></textarea></div>
+      <div class="form-group no-mb">
+        <button type="submit" class="btn-primary" style="width:100%;padding:12px;font-size:14px" id="submitBtn">Send enquiry ↗</button>
+      </div>
+    </form>
+    <div id="formSuccess">
+      <div style="font-size:40px;margin-bottom:.75rem">✅</div>
+      <div style="font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:.5rem">Enquiry sent!</div>
+      <div style="font-size:13px;color:var(--text2)">We received your message and will get back within 24 hours.</div>
+      <button onclick="resetForm()" style="margin-top:1.25rem;background:transparent;border:1px solid var(--border2);color:var(--text2);padding:7px 18px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-family:var(--font-body)">Send another enquiry</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">Zen<span>trix</span> IoT</div>
+  <div class="footer-links">
+    <a onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Products</a>
+    <a onclick="document.getElementById('custom-section').scrollIntoView({behavior:'smooth'})">Custom IoT</a>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
+  </div>
+  <p>© 2025 Zentrix IoT · GSM · Wi-Fi · LoRa · Made in India 🇮🇳</p>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+const API = '';
+let products = [], cart = [], currentFilter = 'all';
+
+// ── LOAD PRODUCTS ──────────────────────────────────────
+async function loadProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = Array(6).fill('<div class="skeleton"></div>').join('');
+  try {
+    const res = await fetch(API + '/api/products');
+    products  = await res.json();
+    document.getElementById('statCount').textContent = products.length + '+';
+  } catch(e) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--danger)">⚠️ Could not load products. Please try again later.</div>';
+    return;
+  }
+  renderProducts('all');
+}
+
+function renderProducts(filter) {
+  currentFilter = filter || currentFilter;
+  const grid = document.getElementById('productGrid');
+  const list = currentFilter === 'all' ? products : products.filter(p => p.cat === currentFilter);
+  if (!list.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text2)">No products in this category yet.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(p => {
+    const imgContent = p.img ? `<img src="${p.img}" alt="${esc(p.name)}">` : `<span class="emoji-icon">${p.icon}</span>`;
+    const badgeHtml  = p.badge === 'new' ? '<span class="badge badge-new">New</span>'
+      : p.badge === 'hot' ? '<span class="badge badge-hot">Popular</span>'
+      : p.badge === 'custom' ? '<span class="badge badge-custom">Custom</span>' : '';
+    const priceHtml  = p.custom ? `<div class="price-req">Price on request</div>` : `<div class="price">₹${Number(p.price).toLocaleString('en-IN')}</div>`;
+    const actionBtn  = p.custom
+      ? `<button class="quote-btn" onclick="quoteProduct('${esc(p.name)}')">Get quote</button>`
+      : `<button class="add-btn" onclick='addToCart(${JSON.stringify({name:p.name,price:p.price})})'>+ Add to cart</button>`;
+    return `
+    <div class="card">
+      <div class="card-img-wrap">${imgContent}${badgeHtml}</div>
+      <div class="card-body">
+        <div class="card-name">${esc(p.name)}</div>
+        <div class="card-desc">${esc(p.desc)}</div>
+        <div class="card-tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+        <div class="card-footer"><div>${priceHtml}<div class="rating">${p.rating} ★</div></div>${actionBtn}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterProducts(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+// ── CART ──────────────────────────────────────────────
+function addToCart(p) { cart.push(p); updateCart(); showToast('✓ ' + p.name + ' added'); }
+function clearCart()  { cart = []; updateCart(); }
+function updateCart() {
+  const total = cart.reduce((s,p) => s + p.price, 0);
+  document.getElementById('cartCount').textContent = cart.length;
+  document.getElementById('cartTotal').textContent = '₹' + total.toLocaleString('en-IN');
+  document.getElementById('cartBar').className = cart.length > 0 ? 'show' : '';
+}
+function checkout() {
+  const items = cart.map(p => p.name).join(', ');
+  const total = cart.reduce((s,p) => s + p.price, 0).toLocaleString('en-IN');
+  alert(`Order summary:\n\n${items}\n\nTotal: ₹${total}\n\nPlease fill the enquiry form to confirm your order.`);
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+}
+function quoteProduct(name) {
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  setTimeout(() => {
+    const sel = document.getElementById('productSelect');
+    for (let o of sel.options) {
+      if (o.text.toLowerCase().includes(name.toLowerCase().substring(0,18))) { sel.value = o.value; break; }
+    }
+  }, 600);
+  showToast('Fill the form below for a quote');
+}
+
+// ── ENQUIRY FORM ──────────────────────────────────────
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('enquiryForm');
+  const btn  = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const data = new FormData(form);
+    data.delete('_next');
+    const res  = await fetch('https://formsubmit.co/ajax/harineash007@gmail.com', {
+      method: 'POST', headers: { 'Accept': 'application/json' }, body: data
+    });
+    const json = await res.json();
+    if (json.success === 'true' || json.success === true) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else throw new Error('failed');
+  } catch {
+    const n = form.querySelector('[name="Full Name"]').value;
+    const ph = form.querySelector('[name="Phone / WhatsApp"]').value;
+    const pr = form.querySelector('[name="Product Interest"]').value;
+    const ms = form.querySelector('[name="Message"]').value;
+    window.location.href = `mailto:harineash007@gmail.com?subject=New%20Enquiry%20%E2%80%94%20Zentrix%20IoT&body=${encodeURIComponent(`Name: ${n}\nPhone: ${ph}\nProduct: ${pr}\nMessage: ${ms}`)}`;
+  }
+  btn.disabled = false; btn.textContent = 'Send enquiry ↗';
+}
+function resetForm() {
+  document.getElementById('enquiryForm').reset();
+  document.getElementById('enquiryForm').style.display = 'block';
+  document.getElementById('formSuccess').style.display = 'none';
+}
+
+// ── UTILS ─────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(t._t); t._t = setTimeout(() => t.style.display = 'none', 3000);
+}
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+loadProducts();
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "zentrix-iot",
+  "version": "1.0.0",
+  "description": "Zentrix IoT Store — Vercel + MongoDB",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step needed'"
+  },
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0"
+  }
+}
