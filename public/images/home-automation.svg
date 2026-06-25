@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d0f1a"/>
+<polygon points="200,30 360,150 360,280 40,280 40,150" fill="#1a1a2e" stroke="#a78bfa" stroke-width="2"/>
+<rect x="168" y="195" width="64" height="85" rx="6" fill="#0d0f1a" stroke="#8a9ab0" stroke-width="1.5"/>
+<rect x="65" y="155" width="60" height="55" rx="6" fill="#1e2a1e" stroke="#00e5a0" stroke-width="1.5"/>
+<circle cx="95" cy="182" r="14" fill="#00e5a0" opacity="0.7"/>
+<text x="82" y="187" font-family="Arial" font-size="10" fill="#0d1a0d">ON</text>
+<rect x="148" y="155" width="70" height="55" rx="6" fill="#1e1a2e" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="162" y="176" font-family="Arial" font-size="11" fill="#a78bfa">FAN</text>
+<text x="160" y="192" font-family="Arial" font-size="10" fill="#8a9ab0">AUTO 3</text>
+<rect x="237" y="155" width="60" height="55" rx="6" fill="#2a1a0d" stroke="#f5a623" stroke-width="1.5"/>
+<circle cx="267" cy="182" r="10" fill="#f5a623" opacity="0.3"/>
+<circle cx="267" cy="182" r="5" fill="#f5a623"/>
+<text x="60" y="105" font-family="Arial" font-size="12" fill="#a78bfa">Alexa</text>
+<text x="308" y="105" font-family="Arial" font-size="12" fill="#4ea8ff">Google</text>
+<line x1="88" y1="108" x2="88" y2="150" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="320" y1="108" x2="320" y2="150" stroke="#4ea8ff" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="85" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#a78bfa">IoT Home Automation Kit</text>
+</svg>

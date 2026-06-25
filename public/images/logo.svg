@@ -1,0 +1,20 @@
+<svg width="480" height="120" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+<defs><style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400&amp;display=swap');</style></defs>
+<polygon points="60,18 88,33 88,63 60,78 32,63 32,33" fill="rgba(0,229,160,0.08)" stroke="#00e5a0" stroke-width="1.5"/>
+<polygon points="60,30 78,40 78,60 60,70 42,60 42,40" fill="rgba(0,229,160,0.15)" stroke="#00e5a0" stroke-width="1" opacity="0.7"/>
+<polyline points="46,45 74,45 46,55 74,55" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<line x1="88" y1="48" x2="102" y2="48" stroke="#00e5a0" stroke-width="1" opacity="0.5"/>
+<circle cx="102" cy="48" r="2.5" fill="#00e5a0" opacity="0.6"/>
+<line x1="60" y1="78" x2="60" y2="92" stroke="#00e5a0" stroke-width="1" opacity="0.5"/>
+<circle cx="60" cy="92" r="2.5" fill="#00e5a0" opacity="0.6"/>
+<line x1="32" y1="48" x2="18" y2="48" stroke="#00e5a0" stroke-width="1" opacity="0.5"/>
+<circle cx="18" cy="48" r="2.5" fill="#00e5a0" opacity="0.4"/>
+<text x="118" y="68" font-family="Space Grotesk,sans-serif" font-size="44" font-weight="700" fill="#f0f2f5">Zen<tspan fill="#00e5a0">trix</tspan></text>
+<line x1="118" y1="80" x2="380" y2="80" stroke="#00e5a0" stroke-width="0.75" opacity="0.4"/>
+<text x="120" y="98" font-family="Inter,sans-serif" font-size="12" font-weight="400" fill="#8a9ab0" letter-spacing="3">IOT SOLUTIONS · MADE IN INDIA</text>
+<circle cx="430" cy="50" r="5" fill="none" stroke="#00e5a0" stroke-width="1.5"/>
+<circle cx="430" cy="50" r="11" fill="none" stroke="#00e5a0" stroke-width="1" opacity="0.6"/>
+<circle cx="430" cy="50" r="18" fill="none" stroke="#00e5a0" stroke-width="0.75" opacity="0.3"/>
+<line x1="430" y1="55" x2="430" y2="70" stroke="#00e5a0" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="420" y1="70" x2="440" y2="70" stroke="#00e5a0" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

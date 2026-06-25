@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d1a0d"/>
+<polygon points="200,30 310,170 90,170" fill="#2d7a2d"/>
+<polygon points="200,55 290,170 110,170" fill="#3a9a3a"/>
+<polygon points="200,90 270,170 130,170" fill="#4ab04a"/>
+<rect x="180" y="170" width="40" height="50" fill="#6B4423"/>
+<rect width="400" height="50" y="250" fill="#1a2e1a"/>
+<rect x="60" y="185" width="90" height="55" rx="6" fill="#0d1a0d" stroke="#00e5a0" stroke-width="1.5"/>
+<circle cx="105" cy="205" r="12" fill="#ff5c5c" opacity="0.9"/>
+<text x="70" y="228" font-family="Arial" font-size="11" fill="#00e5a0">FIRE ALERT</text>
+<text x="70" y="240" font-family="Arial" font-size="9" fill="#8a9ab0">SMS sent</text>
+<line x1="150" y1="212" x2="250" y2="212" stroke="#00e5a0" stroke-width="1" stroke-dasharray="5,3"/>
+<rect x="250" y="185" width="70" height="40" rx="5" fill="#0d1a0d" stroke="#00e5a0" stroke-width="1.5"/>
+<text x="260" y="202" font-family="Arial" font-size="11" fill="#00e5a0">GSM</text>
+<text x="260" y="215" font-family="Arial" font-size="9" fill="#8a9ab0">Solar IP67</text>
+<circle cx="345" cy="200" r="8" fill="none" stroke="#00e5a0" stroke-width="1.5"/>
+<circle cx="345" cy="200" r="15" fill="none" stroke="#00e5a0" stroke-width="1" opacity="0.5"/>
+<text x="80" y="275" font-family="Arial" font-size="14" font-weight="bold" fill="#00e5a0">Emergency Alert System for Forest</text>
+</svg>

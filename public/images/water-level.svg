@@ -1,0 +1,20 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d1020"/>
+<rect x="140" y="25" width="100" height="210" rx="14" fill="#0d1a2e" stroke="#4ea8ff" stroke-width="2"/>
+<rect x="152" y="37" width="76" height="186" rx="8" fill="#050a10"/>
+<rect x="152" y="130" width="76" height="93" rx="0" fill="#4ea8ff" opacity="0.25"/>
+<rect x="152" y="37" width="76" height="55" rx="0" fill="none"/>
+<ellipse cx="190" cy="130" rx="38" ry="10" fill="#4ea8ff" opacity="0.6"/>
+<line x1="140" y1="130" x2="115" y2="130" stroke="#00e5a0" stroke-width="1.5"/>
+<text x="65" y="118" font-family="Arial" font-size="11" fill="#00e5a0">HIGH</text>
+<line x1="140" y1="165" x2="115" y2="165" stroke="#f5a623" stroke-width="1.5"/>
+<text x="68" y="153" font-family="Arial" font-size="11" fill="#f5a623">MID</text>
+<line x1="140" y1="210" x2="115" y2="210" stroke="#ff5c5c" stroke-width="1.5"/>
+<text x="70" y="198" font-family="Arial" font-size="11" fill="#ff5c5c">LOW</text>
+<text x="165" y="100" font-family="Arial" font-size="22" fill="#4ea8ff" font-weight="bold">72%</text>
+<rect x="250" y="95" width="100" height="50" rx="8" fill="#0d1a0d" stroke="#00e5a0" stroke-width="1.5"/>
+<text x="263" y="116" font-family="Arial" font-size="12" fill="#00e5a0">4–20 mA</text>
+<text x="260" y="133" font-family="Arial" font-size="10" fill="#8a9ab0">Digital output</text>
+<line x1="240" y1="120" x2="250" y2="120" stroke="#00e5a0" stroke-width="1.5"/>
+<text x="75" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#4ea8ff">Tank Float Water Level Converter</text>
+</svg>

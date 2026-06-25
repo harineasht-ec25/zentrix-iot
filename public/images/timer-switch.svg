@@ -1,0 +1,14 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d0d0d"/>
+<rect x="80" y="25" width="240" height="230" rx="18" fill="#1a1a1a" stroke="#8a9ab0" stroke-width="2"/>
+<rect x="98" y="45" width="204" height="90" rx="8" fill="#0d1520" stroke="#4ea8ff" stroke-width="1"/>
+<text x="120" y="90" font-family="Arial" font-size="38" fill="#4ea8ff" font-weight="bold">10:30</text>
+<text x="105" y="120" font-family="Arial" font-size="12" fill="#8a9ab0">ON: 07:00 — 19:00  |  Daily</text>
+<rect x="98" y="148" width="95" height="35" rx="6" fill="#00e5a0" opacity="0.15" stroke="#00e5a0" stroke-width="1.5"/>
+<text x="118" y="170" font-family="Arial" font-size="13" fill="#00e5a0">SCHEDULE</text>
+<rect x="207" y="148" width="95" height="35" rx="6" fill="#0d1520" stroke="#8a9ab0" stroke-width="1"/>
+<text x="228" y="170" font-family="Arial" font-size="13" fill="#8a9ab0">MANUAL</text>
+<rect x="98" y="196" width="204" height="40" rx="6" fill="#1a1a2e" stroke="#f5a623" stroke-width="1"/>
+<text x="115" y="221" font-family="Arial" font-size="13" fill="#f5a623">16A · Wi-Fi · App + Voice</text>
+<text x="115" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#8a9ab0">IoT Timer Switch</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d0f12"/>
+<rect x="60" y="30" width="280" height="210" rx="14" fill="#0d0f12" stroke="#00e5a0" stroke-width="2" stroke-dasharray="10,5"/>
+<circle cx="200" cy="130" r="60" fill="#0d1a0d" stroke="#00e5a0" stroke-width="2"/>
+<text x="163" y="122" font-family="Arial" font-size="22" fill="#00e5a0" font-weight="bold">PCB</text>
+<text x="156" y="145" font-family="Arial" font-size="13" fill="#8a9ab0">custom build</text>
+<line x1="200" y1="70" x2="200" y2="42" stroke="#00e5a0" stroke-width="1.5"/>
+<line x1="260" y1="130" x2="290" y2="130" stroke="#00e5a0" stroke-width="1.5"/>
+<line x1="200" y1="190" x2="200" y2="218" stroke="#00e5a0" stroke-width="1.5"/>
+<line x1="140" y1="130" x2="110" y2="130" stroke="#00e5a0" stroke-width="1.5"/>
+<circle cx="200" cy="42" r="10" fill="#4ea8ff"/>
+<text x="190" y="46" font-family="Arial" font-size="9" fill="#fff">WiFi</text>
+<circle cx="290" cy="130" r="10" fill="#f5a623"/>
+<text x="283" y="134" font-family="Arial" font-size="9" fill="#0d0d0d">GSM</text>
+<circle cx="200" cy="218" r="10" fill="#a78bfa"/>
+<text x="191" y="222" font-family="Arial" font-size="9" fill="#fff">LoRa</text>
+<circle cx="110" cy="130" r="10" fill="#ff5c5c"/>
+<text x="104" y="134" font-family="Arial" font-size="9" fill="#fff">BLE</text>
+<text x="80" y="268" font-family="Arial" font-size="14" font-weight="bold" fill="#00e5a0">Custom IoT Product Development</text>
+</svg>
