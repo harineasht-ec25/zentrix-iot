@@ -1,0 +1,16 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#0d0f1a"/>
+<rect x="130" y="60" width="140" height="170" rx="16" fill="#1a1a2e" stroke="#4ea8ff" stroke-width="2"/>
+<rect x="148" y="80" width="104" height="60" rx="6" fill="#0d0f1a" stroke="#4ea8ff" stroke-width="1"/>
+<ellipse cx="200" cy="110" rx="30" ry="20" fill="none" stroke="#4ea8ff" stroke-width="2"/>
+<ellipse cx="200" cy="110" rx="15" ry="10" fill="#4ea8ff" opacity="0.3"/>
+<circle cx="200" cy="110" r="5" fill="#4ea8ff"/>
+<rect x="148" y="153" width="104" height="25" rx="5" fill="#0d0f1a" stroke="#f5a623" stroke-width="1"/>
+<text x="162" y="170" font-family="Arial" font-size="12" fill="#f5a623">MOTION DETECTED</text>
+<line x1="130" y1="110" x2="55" y2="90" stroke="#4ea8ff" stroke-width="1" stroke-dasharray="5,3" opacity="0.7"/>
+<line x1="130" y1="110" x2="45" y2="110" stroke="#4ea8ff" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+<line x1="130" y1="110" x2="55" y2="130" stroke="#4ea8ff" stroke-width="1" stroke-dasharray="5,3" opacity="0.3"/>
+<rect x="148" y="185" width="104" height="30" rx="5" fill="#f5a623" opacity="0.1" stroke="#f5a623" stroke-width="1"/>
+<text x="162" y="205" font-family="Arial" font-size="12" fill="#f5a623">ULTRASONIC · SOLAR</text>
+<text x="95" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#4ea8ff">Animal Repellent Device</text>
+</svg>
